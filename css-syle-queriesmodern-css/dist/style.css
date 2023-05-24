@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;900");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --min: 50%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #222;
+  color: white;
+  width: 100%;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.update {
+  margin-top: 2rem;
+  margin-bottom: 0;
+
+  > a {
+    color: #dfce67;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--min), 20ch), 1fr));
+  gap: 10px;
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+}
+
+.fish-container {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #386254;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: #38a279;
+  }
+
+  > p {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+}
+
+.card-image {
+  width: 80px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+@container style(--expensive: true) {
+  .fish-container {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+/* IGNORE - for codepen preview on profile */
+@media (max-width: 666px) and (max-height: 380px) {
+  body {
+    padding: 50px;
+  }
+  .container {
+    --min: 25%;
+    max-width: 100%;
+  }
+
+  .card-image {
+    width: 50px;
+  }
+}
